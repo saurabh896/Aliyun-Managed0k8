@@ -13,12 +13,18 @@ locals {
                                 # RAM #
 #####################################################################
 resource "alicloud_ram_user" "this" {
-  name = local.name
+  dynamic "name" {
+    for_each = each.value
+  }
+  dynamic "display_name" {
+    for_each = each.value
+  }
+  force = true
 
 }
 
 resource "alicloud_ram_login_profile" "this" {
-    user_name = alicloud_ram_user.this.name
+    user_name = [for o in var.email_list : o.value]
     password = random_uuid.name.result
 }
 
