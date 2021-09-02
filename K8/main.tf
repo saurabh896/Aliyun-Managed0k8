@@ -1,6 +1,5 @@
 provider "alicloud" {
     region = var.region != "" ? var.region: "cn-beijing"
-    
 }
 
 resource "alicloud_cs_managed_kubernetes" "this" {
