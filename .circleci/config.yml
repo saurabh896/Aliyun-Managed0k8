@@ -9,7 +9,7 @@ jobs:
                 command: |
                         CHANGE_CHECKER=./.circleci/script_checker.py
                         SUB_DIR=./K8
-                        if [ python3 ./.circleci/script_checker.py  ./K8 == "True" ]
+                        if [[ `python3 ${CHANGE_CHECKER} ${SUB_DIR}` == "True" ]]
                         then
                             echo "a"
                         fi
