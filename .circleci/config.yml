@@ -15,6 +15,6 @@ jobs:
                         SUB_DIR=./K8
                         if [[ `python3 ${CHANGE_CHECKER} ${SUB_DIR}` == "True" ]]
                         then
-                            echo "$(SUB_DIR) = << pipeline.parameters.workingdir >>"
+                            echo "${SUB_DIR} = << pipeline.parameters.workingdir >>"
                         fi
-            - run: echo <<  pipeline.parameters.workingdir >> 
+            - run: echo "<<  pipeline.parameters.workingdir >>"
