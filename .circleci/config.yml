@@ -5,7 +5,7 @@ workflows:
   generate-config:
     jobs:
       - path-filtering/filter:
-          base-revision: main
+          base-revision: circleci-project-setup
           config-path: .circleci/continue-config.yml
           mapping: |
             K8/.* build-code true
