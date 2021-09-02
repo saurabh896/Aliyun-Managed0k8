@@ -31,6 +31,5 @@ resource "alicloud_cs_kubernetes_autoscaler" "default" {
   utilization             = var.utilization
   cool_down_duration      = var.cool_down_duration
   defer_scale_in_duration = var.defer_scale_in_duration
-
   depends_on = [alicloud_ess_scaling_group.default, alicloud_ess_scaling_configuration.default]
 }
