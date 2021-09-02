@@ -1,12 +1,10 @@
-version: '2.1'
-orbs:
-  path-filtering: circleci/path-filtering@0.0.1
-workflows:
-  generate-config:
-    jobs:
-      - path-filtering/filter:
-          base-revision: circleci-project-setup
-          config-path: .circleci/continue-config.yml
-          mapping: |
-            K8/.* build-code true
-            RAM/.* build-docs true
+version: 2
+jobs:
+    build:
+        docker:
+            - image: circleci/python:3.6
+        steps:
+            - checkout
+            - run:
+                command: |
+                    .circleci/commit_check.sh
