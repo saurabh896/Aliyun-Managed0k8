@@ -7,4 +7,8 @@ jobs:
             - checkout
             - run:
                 command: |
-                    chmod +x .circleci/commit_check.sh &&  .circleci/commit_check.sh
+                        CHANGE_CHECKER=./script_checker.py
+                        SUB_DIR=./K8
+                        if [[ `python3 ${CHANGE_CHECKER} ${SUB_DIR}` == "True" ]]; then
+                            # run unit tests against ${SUB_DIR}
+                        fi
