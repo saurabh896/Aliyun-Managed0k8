@@ -1,0 +1,19 @@
+version: '2.1'
+
+parameters:
+  build-code:
+    type: boolean
+    default: false
+  build-docs:
+    type: boolean
+    default: false
+
+workflows:
+  build-code-workflow:
+    when: << pipeline.parameters.build-code >>
+    jobs:
+      - build-code-job
+  build-docs-workflow:
+    when: << pipeline.parameters.build-docs >>
+    jobs:
+      - build-docs-job
