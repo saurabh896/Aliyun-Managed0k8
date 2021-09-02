@@ -20,7 +20,6 @@ resource "alicloud_cs_managed_kubernetes" "this" {
  data "alicloud_zones" "default" {
    available_instance_types = data.alicloud_instance_types.default.ids[0]
  }
-
 resource "alicloud_cs_kubernetes_autoscaler" "default" {
   cluster_id              = data.alicloud_cs_managed_kubernetes_clusters.default.clusters.0.id
   nodepools {
