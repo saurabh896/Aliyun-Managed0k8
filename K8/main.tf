@@ -13,6 +13,7 @@ resource "alicloud_cs_managed_kubernetes" "this" {
   new_nat_gateway       = var.new_vpc == true ? false : var.new_nat_gateway
  }
 
+
  data "alicloud_instance_types" "default" {
    cpu_core_count = var.cpu_core_count
    memory_size = var.memory_size
