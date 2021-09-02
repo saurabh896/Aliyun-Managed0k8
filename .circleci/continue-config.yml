@@ -12,7 +12,15 @@ workflows:
   build-code-workflow:
     when: << pipeline.parameters.build-code >>
     jobs:
-      - build-code-job
+      shellcheck:
+        docker:
+          - image: circleci/python:3.9.6
+         steps:
+            - checkout
+            - run:
+                name: Check
+                command: ls
+                
   build-docs-workflow:
     when: << pipeline.parameters.build-docs >>
     jobs:
