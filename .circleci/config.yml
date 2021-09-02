@@ -17,4 +17,4 @@ jobs:
                         then
                             echo "<< pipeline.parameters.workingdir >> = TRUE"
                         fi
-            - run: echo << pipeline.parameters.workingdir >>
+            - run: echo "<<  pipeline.parameters.workingdir >>"
