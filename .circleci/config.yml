@@ -18,4 +18,4 @@ jobs:
                             echo "export TF_SUB_DIR=./k8" >> $BASH_ENV
                             echo "export TF_ENV_PREFIX=dev" >> $BASH_ENV
                         fi
-                        
+                        echo $TF_ENV_PREFIX
