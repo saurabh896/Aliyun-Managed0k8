@@ -16,7 +16,6 @@ resource "alicloud_cs_managed_kubernetes" "this" {
    cpu_core_count = var.cpu_core_count
    memory_size = var.memory_size
  }
-#load vswitch on count basis
 
  data "alicloud_zones" "default" {
    available_instance_types = data.alicloud_instance_types.default.ids[0]
