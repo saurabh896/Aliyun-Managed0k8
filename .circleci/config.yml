@@ -1,4 +1,8 @@
 version: 2
+parameters:
+    workingdir:
+        type: string
+        default: ""
 jobs:
     build:
         docker:
@@ -11,5 +15,6 @@ jobs:
                         SUB_DIR=./K8
                         if [[ `python3 ${CHANGE_CHECKER} ${SUB_DIR}` == "True" ]]
                         then
-                            echo "a"
+                            echo "$(SUB_DIR) = << pipeline.parameters.workingdir >>
                         fi
+            - run: echo <<  pipeline.parameters.workingdir >> 
