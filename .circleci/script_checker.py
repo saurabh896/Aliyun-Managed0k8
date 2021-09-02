@@ -28,5 +28,5 @@ def changed_since_last_run_commit(dirs: list) -> bool:
 
 
 if __name__ == "__main__":
-    changed = changed_since_last_commit(sys.argv[1:])
+    changed = changed_since_last_run_commit(sys.argv[1:])
     print(changed)
