@@ -1,21 +1,13 @@
-version: 2
-parameters:
-    workingdir:
-        type: boolean
-        default: false
-jobs:
-    build:
-        docker:
-            - image: circleci/python:3.6
-        steps:
-            - checkout
-            - run:
-                command: |
-                        CHANGE_CHECKER=./.circleci/script_checker.py
-                        SUB_DIR=./K8
-                        if [[ `python3 ${CHANGE_CHECKER} ${SUB_DIR}` == "True" ]]
-                        then
-                            echo "export TF_SUB_DIR=./k8" >> $BASH_ENV; source $BASH_ENV
-                            echo "export TF_ENV_PREFIX=dev" >> $BASH_ENV; source $BASH_ENV
-                        fi
-                        echo $TF_ENV_PREFIX
+version: 2.1
+setup: true
+orbs:
+  path-filtering: circleci/path-filtering@0.0.2
+workflows:
+  setup:
+    jobs:
+      - path-filtering/filter:
+          base-revision: master
+          mapping: |
+            data/.* config-data-modified true
+          config-path: .circleci/workflows.yml
+
