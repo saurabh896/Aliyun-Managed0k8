@@ -21,4 +21,5 @@ variable "k8_version" {
 variable "worker_instance_types" {
   type        = list(string)
   default     = ["ecs.n4.xlarge"]
+  
 }
