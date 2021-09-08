@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DEV_BUILD=$1
-cat << EOF > main.yaml
+cat << EOF > .circleci/main.yaml
 version: 2.1
 jobs:
   job1:
