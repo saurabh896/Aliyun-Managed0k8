@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -euo pipefall
 DEV_BUILD=$1
 cat > main.yml \<<- "EOF"
 
