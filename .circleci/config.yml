@@ -18,7 +18,7 @@ jobs:
               echo $ENV
       - run:
           command: |
-              ./.circleci/generator.sh $ENV 
+              chmod +x ./.circleci/generator.sh && ./.circleci/generator.sh $ENV 
 
       - continuation/continue:
           configuration_path: ".circleci/main.yml"  
