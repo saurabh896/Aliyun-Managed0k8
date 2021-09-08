@@ -1,10 +1,5 @@
 version: 2.1
 
-parameters:
-  run_dev:
-    type: boolean
-    default: false
-
 jobs:
   build:
     docker:
@@ -22,6 +17,6 @@ jobs:
     
 workflows:
   build-code-wf:
-    when: << pipeline.parameters.buildbuild >>
+    when: << pipeline.parameters.run_dev >>
     jobs:
       - build
