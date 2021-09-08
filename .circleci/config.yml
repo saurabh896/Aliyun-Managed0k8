@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Generate config
           command: |
-            chmod +x ./.circleci/generator.sh && ./circleci/generator.sh $TF_ENV
+            chmod +x /.circleci/generator.sh &&  /circleci/generator.sh $TF_ENV
       - continuation/continue:
           configuration_path: main.yml
 
