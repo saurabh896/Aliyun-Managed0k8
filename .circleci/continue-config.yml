@@ -2,9 +2,9 @@ version: 2.1
 
 parameters:
   run_dev:
-    type: boolean
+    type: string
     default: false
-    
+
 jobs:
   build:
     docker:
@@ -22,6 +22,8 @@ jobs:
     
 workflows:
   build-code-wf:
-    when: << pipeline.parameters.run_dev >>
+    when:
+      and:
+        - equal: [true,<< pipeline.parameters.run_dev >>]
     jobs:
       - build
