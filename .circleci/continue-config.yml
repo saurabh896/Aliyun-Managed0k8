@@ -1,27 +1,21 @@
 version: '2.1'
 
 parameters:
-  build-code:
-    type: boolean
-    default: false
-  build-docs:
+  pathtodev:
     type: boolean
     default: false
 
+
 workflows:
   build-code-workflow:
-    when: << pipeline.parameters.build-code >>
+    when: << pipeline.parameters.pathtodev >>
     jobs:
-      shellcheck:
+      build:
         docker:
           - image: circleci/python:3.9.6
-         steps:
-            - checkout
-            - run:
+        steps:
+          - checkout
+          - run: |
                 name: Check
                 command: ls
                 
-  build-docs-workflow:
-    when: << pipeline.parameters.build-docs >>
-    jobs:
-      - build-docs-job

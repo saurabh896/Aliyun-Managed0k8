@@ -1,12 +1,29 @@
 version: 2.1
 setup: true
 orbs:
-  path-filtering: circleci/path-filtering@0.0.2
+  path-filtering: circleci/continuation@0.1.0
+parameters:
+  run_dev:
+    type: boolean
+    default: false
+
+jobs:
+  generate-config:
+    executor: continuation/default
+    steps:
+      - checkout
+      - run:
+          command:  echo 'export DEV=true' >> $BASH_ENV
+      - continuation/continue:
+          configuration_path: ".circleci/test.yml"
+          parameters: |
+          { "pathtodev":"$DEV" } 
+          requires:
+            - run
+          pre-steps:
+            -checkout         
+
 workflows:
   setup:
     jobs:
-      - path-filtering/filter:
-          base-revision: master
-          mapping: |
-            data/.* config-data-modified true
-          config-path: .circleci/workflows.yml
+      - generate-config
