@@ -11,11 +11,8 @@ workflows:
     when: << pipeline.parameters.pathtodev >>
     jobs:
       build:
-        docker:
-          - image: circleci/python:3.9.6
         steps:
           - checkout
           - run: |
                 name: Check
                 command: ls
-                
