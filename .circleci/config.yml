@@ -17,13 +17,9 @@ jobs:
       - continuation/continue:
           configuration_path: ".circleci/test.yml"
           parameters: |
-           { "pathtodev":"$DEV" } 
-          requires:
-            - run
-          pre-steps:
-            -checkout         
+           { "pathtodev":"$DEV" }     
 
 workflows:
-  setup:
+  setup-workflow:
     jobs:
       - generate-config
