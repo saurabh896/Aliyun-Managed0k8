@@ -14,12 +14,11 @@ jobs:
       - checkout
       - run:
           command:  |
-              echo 'export DEV=true' >> $BASH_ENV
-              echo $DEV
+              echo "export DEV=true" >> $BASH_ENV; source $BASH_ENV
       - continuation/continue:
           configuration_path: ".circleci/continue-config.yml"
           parameters: |
-           { "run_dev": $DEV }     
+           { "run_dev": "$DEV" }     
 
 workflows:
   setup-workflow:
