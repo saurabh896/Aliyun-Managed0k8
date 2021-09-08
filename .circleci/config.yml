@@ -5,7 +5,7 @@ orbs:
 parameters:
   run_dev:
     type: boolean
-    default: dev
+    default: false
 
 jobs:
   generate-config:
