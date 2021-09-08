@@ -1,8 +1,14 @@
+#!/bin/bash
+
+set -euo pipefall
+DEV_BUILD=$1
+cat > main.yml \<<- "EOF"
+
 version: 2.1
 parameters:
   run_dev:
     type: boolean
-    default: $DEV
+    default: $DEV_BUILD
 
 
 jobs:
@@ -27,3 +33,5 @@ workflows:
         - << pipeline.parameters.run_dev >>
     jobs:
       - build
+
+EOF
