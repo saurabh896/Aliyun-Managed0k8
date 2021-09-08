@@ -15,7 +15,7 @@ jobs:
       - run:
           command:  echo 'export DEV=true' >> $BASH_ENV
       - continuation/continue:
-          configuration_path: ".circleci/test.yml"
+          configuration_path: ".circleci/continue-config.yml"
           parameters: |
            { "pathtodev":"$DEV" }     
 
