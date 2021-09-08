@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DEV_BUILD=$1
-cat << EOF > main.yaml
+cat << EOF > main.yml
 version: 2.1
 jobs:
   job1:
