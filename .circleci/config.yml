@@ -15,19 +15,7 @@ jobs:
       - run:
           name: Generate config
           command: |
-            cat > main.yml \<<- "EOF"
-            version: 2.1
-            jobs:
-              job1:
-                docker:
-                  - image: cimg/base:2021.04
-                steps:
-                  - run: echo $TF_ENV
-            workflows:
-             workflow1:
-              jobs:
-               - job1
-            EOF
+            chmod +x ./.circleci/generator.sh && . generator.sh $TF_ENV
       - continuation/continue:
           configuration_path: main.yml
 
