@@ -15,6 +15,7 @@ jobs:
       - run:
           command:  |
               echo "export DEV=true" >> $BASH_ENV; source $BASH_ENV
+              echo $DEV
       - continuation/continue:
           configuration_path: ".circleci/continue-config.yml"
           parameters: |
