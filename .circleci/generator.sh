@@ -8,7 +8,7 @@ jobs:
     docker:
       - image: cimg/base:2021.04
     steps:
-      - run: echo $TF_ENV
+      - run: echo $DEV_BUILD
 workflows:
   workflow1:
     jobs:
