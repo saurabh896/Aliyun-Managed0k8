@@ -4,8 +4,8 @@ orbs:
   continuation: circleci/continuation@0.2.0
 parameters:
   run_dev:
-    type: string
-    default: dev
+    type: boolean
+    default: false
 
 jobs:
   generate-config:

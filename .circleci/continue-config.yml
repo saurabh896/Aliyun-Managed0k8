@@ -2,8 +2,8 @@ version: 2.1
 
 parameters:
   run_dev:
-    type: string
-    default: "dev"
+    type: boolean
+    default: false
 
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
 workflows:
   build-code-wf:
     when:
-      and:
-        - equal: ["true",<< pipeline.parameters.run_dev >>]
+      or:
+        - << pipeline.parameters.run_dev >>
     jobs:
       - build
