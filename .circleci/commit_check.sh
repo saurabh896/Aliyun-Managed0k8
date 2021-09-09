@@ -16,7 +16,6 @@ if [ $FOLDER1_COMMIT = $LATEST_COMMIT ];
 elif [ $FOLDER2_COMMIT = $LATEST_COMMIT ];
     then
         echo "files in folder2 has changed"
-        .circleci/do_something_else.sh
         echo "First loop"
 else
      echo "no folders of relevance has changed"
