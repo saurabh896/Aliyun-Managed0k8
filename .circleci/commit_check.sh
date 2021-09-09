@@ -12,11 +12,12 @@ FOLDER2_COMMIT=$(git log -1 --format=format:%H --full-diff RAM)
 if [ $FOLDER1_COMMIT = $LATEST_COMMIT ];
     then
         echo "files in folder1 has changed"
-        .circleci/do_something.sh
+        echo "First loop"
 elif [ $FOLDER2_COMMIT = $LATEST_COMMIT ];
     then
         echo "files in folder2 has changed"
         .circleci/do_something_else.sh
+        echo "First loop"
 else
      echo "no folders of relevance has changed"
      exit 0;
