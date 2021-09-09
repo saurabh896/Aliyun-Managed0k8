@@ -1,28 +1,10 @@
-version: 2.1
-
-setup: true
- 
-orbs:
-  continuation: circleci/continuation@0.1.2
-
+version: 2
 jobs:
-  setup:
-    executor: continuation/default
-    steps:
-      - checkout
-      - run:
-          command: echo "export TF_ENV=dev" >>$BASH_ENV; source $BASH_ENV
-      - run:
-          name: Generate config
-          command: |
-            chmod +x .circleci/generator.sh
-            circleci step halt
-            circleci-agent step halt
-            exit 0
-      - continuation/continue:
-          configuration_path: main.yml
-
-workflows:
-  setup:
-    jobs:
-      - setup
+    build:
+        docker:
+            - image: circleci/python:3.6
+        steps:
+            - checkout
+            - run:
+                command: |
+                    .circleci/commit_check.sh
