@@ -16,7 +16,8 @@ if [ $FOLDER1_COMMIT = $LATEST_COMMIT ];
 elif [ $FOLDER2_COMMIT = $LATEST_COMMIT ];
     then
         echo "files in folder2 has changed"
-        echo "First loop"
+        echo "second loop"
+        circleci-agent step halt
 else
      echo "no folders of relevance has changed"
      exit 0;
